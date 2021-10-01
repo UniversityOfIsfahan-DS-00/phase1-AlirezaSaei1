@@ -4,11 +4,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class User {
-    String username;
-    String email;
-    String password;
-    Set<String> rated;
-    Set<String> watchlist;
+    private String username;
+    private String email;
+    private String password;
+    private Set<String> rated;
+    private Set<String> watchlist;
 
     public User(String username, String password, String email){
         this.username = username;
@@ -24,5 +24,25 @@ public class User {
         this.password = password;
         this.rated = rated;
         this.watchlist = watchlist;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public Set<String> getRated() {
+        return rated;
+    }
+
+    public Set<String> getWatchlist() {
+        return watchlist;
     }
 }

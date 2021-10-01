@@ -19,6 +19,9 @@ import java.net.URI;
 
 public class Controller {
     static User loggedInUser;
+    private static Parent root1;
+    private static Stage stage1;
+    private static Scene scene1;
 
     public Label myLabel;
     public Label eLabel;
@@ -35,11 +38,6 @@ public class Controller {
             stage.setScene(scene);
             stage.setTitle("Login");
             stage.show();
-
-            for(String s : Main.userPass.keySet()){
-                System.out.println(s);
-                System.out.println(Main.userPass.get(s));
-            }
 
         } catch (Exception e1) {
             e1.printStackTrace();
@@ -206,12 +204,10 @@ public class Controller {
 
     public void successful_login(ActionEvent e) {
         try {
-            root = FXMLLoader.load(getClass().getResource("JFXs/MainMenu.fxml"));
-            stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("Login");
-            stage.show();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("JFXs/MainMenu.fxml"));
+            root = loader.load();
+            MenuController c1 = loader.getController();
+            c1.MainMenu(e);
         } catch (Exception exception) {
             exception.printStackTrace();
         }
@@ -225,6 +221,22 @@ public class Controller {
             stage.setScene(scene);
             stage.setTitle("Login");
             stage.show();
+
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
+    }
+
+    public static void after_logout(ActionEvent e){
+        try {
+            root1 = FXMLLoader.load(Controller.class.getResource("JFXs/Main.fxml"));
+            stage1 = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            scene1 = new Scene(root1);
+            stage1.setScene(scene1);
+            stage1.setTitle("Welcome!");
+            stage1.show();
+
+            Controller.loggedInUser = null;
 
         } catch (Exception e1) {
             e1.printStackTrace();
