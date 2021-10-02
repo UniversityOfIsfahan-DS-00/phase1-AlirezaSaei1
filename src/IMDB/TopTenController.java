@@ -83,42 +83,42 @@ public class TopTenController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        welcome_Label.setText("Hello " + Controller.loggedInUser.getUsername() + " !");
+        welcome_Label.setText("Hello " + Controller.loggedInUser.getUsername() + "!");
 
         Movie[] movies = Main.movieList.values().toArray(new Movie[0]);
         List<Movie> list = new ArrayList<>(Arrays.asList(movies));
         list.sort(Movie::compareTo);
 
         for(int i=0; i<10; i++){
-            if(i == 1){
-                n1.setText(list.get(i).getTitle()); r1.setText(String.valueOf(list.get(i).getAvgRating()));
+            if(i == 0){
+                n1.setText(list.get(i).getTitle()); r1.setText(String.valueOf(Math.round(list.get(i).getAvgRating() * 10) / 10f));
                 v1.setText(String.valueOf(list.get(i).getVotes()));
-            }else if(i == 2){
-                n2.setText(list.get(i).getTitle()); r2.setText(String.valueOf(list.get(i).getAvgRating()));
+            }else if(i == 1){
+                n2.setText(list.get(i).getTitle()); r2.setText(String.valueOf(Math.round(list.get(i).getAvgRating() * 10) / 10f));
                 v2.setText(String.valueOf(list.get(i).getVotes()));
-            }else if(i == 3){
-                n3.setText(list.get(i).getTitle()); r3.setText(String.valueOf(list.get(i).getAvgRating()));
+            }else if(i == 2){
+                n3.setText(list.get(i).getTitle()); r3.setText(String.valueOf(Math.round(list.get(i).getAvgRating() * 10) / 10f));
                 v3.setText(String.valueOf(list.get(i).getVotes()));
-            }else if(i == 4){
-                n4.setText(list.get(i).getTitle()); r4.setText(String.valueOf(list.get(i).getAvgRating()));
+            }else if(i == 3){
+                n4.setText(list.get(i).getTitle()); r4.setText(String.valueOf(Math.round(list.get(i).getAvgRating() * 10) / 10f));
                 v4.setText(String.valueOf(list.get(i).getVotes()));
-            }else if(i == 5){
-                n5.setText(list.get(i).getTitle()); r5.setText(String.valueOf(list.get(i).getAvgRating()));
+            }else if(i == 4){
+                n5.setText(list.get(i).getTitle()); r5.setText(String.valueOf(Math.round(list.get(i).getAvgRating() * 10) / 10f));
                 v5.setText(String.valueOf(list.get(i).getVotes()));
-            }else if(i == 6){
-                n6.setText(list.get(i).getTitle()); r6.setText(String.valueOf(list.get(i).getAvgRating()));
+            }else if(i == 5){
+                n6.setText(list.get(i).getTitle()); r6.setText(String.valueOf(Math.round(list.get(i).getAvgRating() * 10) / 10f));
                 v6.setText(String.valueOf(list.get(i).getVotes()));
-            }else if(i == 7){
-                n7.setText(list.get(i).getTitle()); r7.setText(String.valueOf(list.get(i).getAvgRating()));
+            }else if(i == 6){
+                n7.setText(list.get(i).getTitle()); r7.setText(String.valueOf(Math.round(list.get(i).getAvgRating() * 10) / 10f));
                 v7.setText(String.valueOf(list.get(i).getVotes()));
-            }else if(i == 8){
-                n8.setText(list.get(i).getTitle()); r8.setText(String.valueOf(list.get(i).getAvgRating()));
+            }else if(i == 7){
+                n8.setText(list.get(i).getTitle()); r8.setText(String.valueOf(Math.round(list.get(i).getAvgRating() * 10) / 10f));
                 v8.setText(String.valueOf(list.get(i).getVotes()));
-            }else if(i == 9){
-                n9.setText(list.get(i).getTitle()); r9.setText(String.valueOf(list.get(i).getAvgRating()));
+            }else if(i == 8){
+                n9.setText(list.get(i).getTitle()); r9.setText(String.valueOf(Math.round(list.get(i).getAvgRating() * 10) / 10f));
                 v9.setText(String.valueOf(list.get(i).getVotes()));
             }else{
-                n10.setText(list.get(i).getTitle()); r10.setText(String.valueOf(list.get(i).getAvgRating()));
+                n10.setText(list.get(i).getTitle()); r10.setText(String.valueOf(Math.round(list.get(i).getAvgRating() * 10) / 10f));
                 v10.setText(String.valueOf(list.get(i).getVotes()));
             }
         }

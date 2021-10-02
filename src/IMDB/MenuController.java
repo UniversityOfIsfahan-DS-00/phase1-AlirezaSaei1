@@ -62,9 +62,33 @@ public class MenuController implements Initializable {
         }
     }
 
+    public void vote(ActionEvent e){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("JFXs/Rating.fxml"));
+            root = loader.load();
+            RatingController c1 = loader.getController();
+            c1.votingPage(e);
+
+        }catch (Exception exception){
+            exception.printStackTrace();
+        }
+    }
+
+    public void user_rated(ActionEvent e){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("JFXs/UserRated.fxml"));
+            root = loader.load();
+            UserRatedController c1 = loader.getController();
+            c1.my_rated(e);
+
+        }catch (Exception exception){
+            exception.printStackTrace();
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        welcome_Label.setText("Hello " + Controller.loggedInUser.getUsername() + " !");
+        welcome_Label.setText("Hello " + Controller.loggedInUser.getUsername() + "!");
 
         userMenu.getItems().add("Log Out");
 

@@ -48,7 +48,8 @@ public class Movie implements Comparable<Movie> {
         }
     }
 
-    public void voted(double score){
+    public void voted(double score, User user){
+        user.add_rated(this.titleId, String.valueOf(Math.round(score * 10)/ 10f));
         this.avgRating = ((this.avgRating * this.votes) + score)/(this.votes + 1);
         this.votes++;
     }

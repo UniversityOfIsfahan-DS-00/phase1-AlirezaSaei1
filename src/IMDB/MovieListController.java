@@ -79,7 +79,7 @@ public class MovieListController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         idCol.setSortType(TableColumn.SortType.ASCENDING);
 
-        w_Label.setText("Hello " + Controller.loggedInUser.getUsername() + " !");
+        w_Label.setText("Hello " + Controller.loggedInUser.getUsername() + "!");
 
         uMenu.getItems().add("Log Out");
 
