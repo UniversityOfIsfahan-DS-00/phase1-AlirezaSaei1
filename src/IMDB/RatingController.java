@@ -3,6 +3,7 @@ package IMDB;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -10,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -147,14 +149,15 @@ public class RatingController implements Initializable {
             }
         });
 
-        listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+        listView.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                String[] v = newValue.split("->");
+            public void handle(MouseEvent mouseEvent) {
+                String[] v = listView.getSelectionModel().getSelectedItem().split("->");
                 movieName.setText(v[1]);
                 votedID = v[0].replace(" ", "");
             }
         });
+
         Collator collator = Collator.getInstance(Locale.US);
         list.sort(new Comparator<String>() {
             @Override

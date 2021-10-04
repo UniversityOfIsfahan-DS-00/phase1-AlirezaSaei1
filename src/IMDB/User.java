@@ -52,6 +52,10 @@ public class User implements Serializable {
         rated.put(id, score);
     }
 
+    public void delete_watchlist(String key){
+        this.watchlist.remove(key);
+    }
+
     public void add_watchlist(String id){
         watchlist.add(id);
     }

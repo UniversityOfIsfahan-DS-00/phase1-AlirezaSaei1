@@ -46,7 +46,6 @@
             <Font name="System Bold" size="19.0" />
          </font>
       </Label>
-      <Label layoutX="97.0" layoutY="406.0" text="Coming Soon..." textFill="#f8f6f6" />
       <Label fx:id="welcome_Label" alignment="CENTER" layoutX="546.0" layoutY="23.0" prefHeight="17.0" prefWidth="165.0" text="Welcome User!" textFill="WHITE">
          <font>
             <Font size="15.0" />
@@ -64,5 +63,7 @@
             <Image url="@../Pictures/User_Icon.png" />
          </image>
       </ImageView>
+      <Button layoutX="195.0" layoutY="391.0" mnemonicParsing="false" onAction="#addToWatchlist" prefHeight="50.0" prefWidth="187.0" text="Add To Watchlist" />
+      <Button layoutX="459.0" layoutY="391.0" mnemonicParsing="false" onAction="#myWatchlist" prefHeight="50.0" prefWidth="187.0" text="My Watchlist" />
    </children>
 </AnchorPane>

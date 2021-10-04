@@ -7,12 +7,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 public class MenuController implements Initializable {
 
@@ -25,6 +28,10 @@ public class MenuController implements Initializable {
     @FXML
     ChoiceBox<String> userMenu;
 
+    static String getRandomSetElement(Set<String> set) {
+        return set.stream().skip(new Random().nextInt(set.size())).findFirst().orElse(null);
+    }
+
     public void MainMenu(ActionEvent e){
         try {
             root = FXMLLoader.load(getClass().getResource("JFXs/MainMenu.fxml"));
@@ -35,6 +42,15 @@ public class MenuController implements Initializable {
             stage.show();
         }catch (Exception exception){
             exception.printStackTrace();
+        }
+
+        if(Controller.loggedInUser.getWatchlist().size()!=0){
+            Alert a = new Alert(Alert.AlertType.WARNING);
+            a.setTitle("Hello " + Controller.loggedInUser.getUsername());
+            a.setHeaderText("watchlist Reminder");
+            String rand = getRandomSetElement(Controller.loggedInUser.getWatchlist());
+            a.setContentText("Let's Watch : " + Main.movieList.get(rand).getTitle());
+            a.showAndWait();
         }
     }
 
@@ -80,6 +96,30 @@ public class MenuController implements Initializable {
             root = loader.load();
             UserRatedController c1 = loader.getController();
             c1.my_rated(e);
+
+        }catch (Exception exception){
+            exception.printStackTrace();
+        }
+    }
+
+    public void myWatchlist(ActionEvent e){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("JFXs/MyWatchlist.fxml"));
+            root = loader.load();
+            MyWatchlistController c1 = loader.getController();
+            c1.showWatchlist(e);
+
+        }catch (Exception exception){
+            exception.printStackTrace();
+        }
+    }
+
+    public void addToWatchlist(ActionEvent e){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("JFXs/AddWatchlist.fxml"));
+            root = loader.load();
+            AddWatchlistController c1 = loader.getController();
+            c1.addToWatchlist(e);
 
         }catch (Exception exception){
             exception.printStackTrace();
